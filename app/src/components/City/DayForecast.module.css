@@ -1,0 +1,19 @@
+.wrapperForecast
+{
+    width:65rem;
+    background-color: #E5EDF1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-left:10px;
+    margin-top: 10px;
+}
+
+.hours
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    list-style: none;
+}
