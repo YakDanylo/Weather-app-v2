@@ -14,6 +14,7 @@ function CityCard()
     const showCity = useSelector(state=>state.showCity)
     const isLoading = useSelector(state=>state.loading)
     const [dayChoosement, setDayChoosement] = useState(0)
+    const [dayOfWeek,setDayOfWeek] = useState('')
 
     function changeDay(e)
     {
@@ -24,6 +25,12 @@ function CityCard()
     {
         dispatch(getData(e.target.value))
         e.target.value=''
+    }
+
+    function getDayOfWeek(day)
+    {
+        const temp = new Date(day)
+        setDayOfWeek(temp.getDay())
     }
     return(
         <div className={classes.wrapper} >
@@ -40,9 +47,9 @@ function CityCard()
             <div className={classes.card}>
                 <div className={classes.dayInfo}>
                     <CurrentWeather city={cityInfo}/>
-                    <DayForecast forecast={cityInfo.forecast} showDay={dayChoosement} />
+                    <DayForecast forecast={cityInfo.forecast} showDay={dayChoosement} dayOfWeek={dayOfWeek} />
                 </div>
-                <FewDaysForecast weather={cityInfo.forecast} selectDay={changeDay}/>
+                <FewDaysForecast weather={cityInfo.forecast} selectDay={changeDay} getDay={getDayOfWeek}/>
             </div>
         </div>
     )

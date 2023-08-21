@@ -6,7 +6,7 @@ function DayForecast(props)
     const week = ["Sunday", "Monday", "Tuesday", 'Wednesday',"Thursday","Friday","Saturday"]
     return (
         <div className={classes.wrapperForecast}>
-            <h1>Forecast for: {props.showDay==0?"Today": week[props.showDay]}</h1>
+            <h1>Forecast for: {props.showDay==0?"Today": week[props.dayOfWeek]}</h1>
             <ul className={classes.hours}>
                 {todayForecast.map(hour=>
                     { 
